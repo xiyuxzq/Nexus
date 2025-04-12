@@ -107,7 +107,7 @@ exec(compile(open(startup_script, 'rb').read(), startup_script, 'exec'))
                     # Maya使用Python启动脚本
                     # 在Windows上路径需要特殊处理
                     maya_script_path = temp_path.replace('\\', '/')
-                    cmd_args.extend(["-command", f"python(\\"execfile('{maya_script_path}')\\")"]) 
+                    cmd_args.extend(["-command", f"python(\"execfile('{maya_script_path}')\")"])
                 
                 elif software == "3dsmax":
                     # 3ds Max使用MAXScript文件启动

@@ -15,7 +15,7 @@ echo 正在检查并安装必要的Python包...
 pip install PyQt5 pyyaml
 
 rem 设置环境变量
-set NEXUS_HOME=%~dp0
+set NEXUS_HOME=%~dp0..
 echo NEXUS_HOME设置为: %NEXUS_HOME%
 echo.
 

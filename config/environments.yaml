@@ -1,67 +1,64 @@
-- name: Maya2019 Character
+- department: Character
+  env_variables:
+    MAYA_PLUG_IN_PATH: ${NEXUS_HOME}/plugins/maya
+    MAYA_SCRIPT_PATH: ${NEXUS_HOME}/scripts/maya
+    PYTHONPATH: ${NEXUS_HOME}/scripts/maya;${PYTHONPATH}
+  executable_path: D:/Program Files/Maya2020/bin/maya.exe
+  menu_items:
+  - items:
+    - name: Rig Tool
+      script: character/rig_tool.py
+    - name: Skin Tool
+      script: character/skin_tool.py
+    name: Character Tools
+  name: Maya2019 Character
   software: Maya
-  version: '2019'
-  department: Character
-  executable_path: C:/Program Files/Autodesk/Maya2019/bin/maya.exe
   startup_script: scripts/maya_character_startup.py
-  env_variables:
-    MAYA_SCRIPT_PATH: ${NEXUS_HOME}/scripts/maya
-    MAYA_PLUG_IN_PATH: ${NEXUS_HOME}/plugins/maya
-    PYTHONPATH: ${NEXUS_HOME}/scripts/maya;${PYTHONPATH}
-  menu_items:
-    - name: Character Tools
-      items:
-        - name: Rig Tool
-          script: character/rig_tool.py
-        - name: Skin Tool
-          script: character/skin_tool.py
-
-- name: Maya2019 Weapon
-  software: Maya
   version: '2019'
-  department: Weapon
+- department: Weapon
+  env_variables:
+    MAYA_PLUG_IN_PATH: ${NEXUS_HOME}/plugins/maya
+    MAYA_SCRIPT_PATH: ${NEXUS_HOME}/scripts/maya
+    PYTHONPATH: ${NEXUS_HOME}/scripts/maya;${PYTHONPATH}
   executable_path: C:/Program Files/Autodesk/Maya2019/bin/maya.exe
+  menu_items:
+  - items:
+    - name: Model Tool
+      script: weapon/model_tool.py
+    - name: UV Tool
+      script: weapon/uv_tool.py
+    name: Weapon Tools
+  name: Maya2019 Weapon
+  software: Maya
   startup_script: scripts/maya_weapon_startup.py
-  env_variables:
-    MAYA_SCRIPT_PATH: ${NEXUS_HOME}/scripts/maya
-    MAYA_PLUG_IN_PATH: ${NEXUS_HOME}/plugins/maya
-    PYTHONPATH: ${NEXUS_HOME}/scripts/maya;${PYTHONPATH}
-  menu_items:
-    - name: Weapon Tools
-      items:
-        - name: Model Tool
-          script: weapon/model_tool.py
-        - name: UV Tool
-          script: weapon/uv_tool.py
-
-- name: Max2019 Weapon
-  software: 3dsMax
   version: '2019'
-  department: Weapon
+- department: Weapon
+  env_variables:
+    MAX_SCRIPT_PATH: ${NEXUS_HOME}/scripts/max
   executable_path: C:/Program Files/Autodesk/3ds Max 2019/3dsmax.exe
+  menu_items:
+  - items:
+    - name: Model Tool
+      script: weapon/model_tool.ms
+    - name: UV Tool
+      script: weapon/uv_tool.ms
+    name: Weapon Tools
+  name: Max2019 Weapon
+  software: 3dsMax
   startup_script: scripts/max_weapon_startup.ms
-  env_variables:
-    MAX_SCRIPT_PATH: ${NEXUS_HOME}/scripts/max
-  menu_items:
-    - name: Weapon Tools
-      items:
-        - name: Model Tool
-          script: weapon/model_tool.ms
-        - name: UV Tool
-          script: weapon/uv_tool.ms
-
-- name: Max2019 Environment
-  software: 3dsMax
   version: '2019'
-  department: Environment
-  executable_path: C:/Program Files/Autodesk/3ds Max 2019/3dsmax.exe
-  startup_script: scripts/max_environment_startup.ms
+- department: Environment
   env_variables:
     MAX_SCRIPT_PATH: ${NEXUS_HOME}/scripts/max
+  executable_path: C:/Program Files/Autodesk/3ds Max 2019/3dsmax.exe
   menu_items:
-    - name: Environment Tools
-      items:
-        - name: Landscape Tool
-          script: environment/landscape_tool.ms
-        - name: Scatter Tool
-          script: environment/scatter_tool.ms
+  - items:
+    - name: Landscape Tool
+      script: environment/landscape_tool.ms
+    - name: Scatter Tool
+      script: environment/scatter_tool.ms
+    name: Environment Tools
+  name: Max2019 Environment
+  software: 3dsMax
+  startup_script: scripts/max_environment_startup.ms
+  version: '2019'

@@ -1,0 +1,12 @@
+users:
+- departments:
+  - '*'
+  password: gAAAAABn-eAWcNiscKq-qrS1atk3ynVwl27qlsDFq23Qoz6YQETUs2z_wRJ13CH58DSKHY8dUw3V14JjoQ_bnizEFpxa6c6O9Q==
+  role: admin
+  username: admin
+- departments:
+  - Character
+  - Weapon
+  password: gAAAAABn-eAWDx0TK17Eicc7yx2OxHK7NZKcJsTTGI0rymFNEtAwYGB0m21HNIJUyaaoyRSi_zpU0udTvuK7f5X7ABJNOvNxSw==
+  role: user
+  username: user

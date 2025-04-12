@@ -37,7 +37,10 @@ class SimpleConfigManager:
 class SimpleLauncher:
     """简化的软件启动器"""
     def __init__(self):
-        self.nexus_home = os.path.dirname(os.path.abspath(__file__))
+        # 获取tests目录的路径
+        self.tests_home = os.path.dirname(os.path.abspath(__file__))
+        # 获取项目根目录的路径（上一级目录）
+        self.nexus_home = os.path.dirname(self.tests_home)
     
     def _resolve_path(self, path):
         """解析路径中的变量"""
@@ -72,7 +75,12 @@ class SimpleLauncher:
         startup_script = environment.get("startup_script")
         
         if startup_script:
-            script_path = os.path.join(self.nexus_home, startup_script)
+            # 使用tests目录下的scripts路径
+            if startup_script.startswith("scripts/"):
+                script_path = os.path.join(self.tests_home, startup_script)
+            else:
+                script_path = os.path.join(self.nexus_home, startup_script)
+            
             script_path = self._resolve_path(script_path)
             
             if os.path.exists(script_path):
@@ -104,11 +112,16 @@ class NexusTestApp(QObject):
     def __init__(self):
         super().__init__()
         
+        # 获取tests目录的路径
+        self.tests_home = os.path.dirname(os.path.abspath(__file__))
+        # 获取项目根目录的路径（上一级目录）
+        self.nexus_home = os.path.dirname(self.tests_home)
+        
         # 设置应用图标
-        icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icons", "nexus.ico")
+        icon_path = os.path.join(self.nexus_home, "icons", "nexus.ico")
         if not os.path.exists(icon_path):
             # 如果图标不存在，使用备用的文本文件
-            icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icons", "nexus.ico.txt")
+            icon_path = os.path.join(self.nexus_home, "icons", "nexus.ico.txt")
             print(f"警告: 未找到图标文件，使用备用文本文件: {icon_path}")
             # 创建临时图标
             pixmap = QPixmap(64, 64)
@@ -123,7 +136,7 @@ class NexusTestApp(QObject):
             self.app_icon = QIcon(icon_path)
         
         # 加载配置
-        config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config")
+        config_path = os.path.join(self.tests_home, "config")
         self.config_manager = SimpleConfigManager(config_path)
         self.environments = self.config_manager.get_environments()
         

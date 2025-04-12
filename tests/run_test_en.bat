@@ -15,7 +15,7 @@ echo Installing required Python packages...
 python -m pip install PyQt5 pyyaml
 
 rem Set environment variables
-set NEXUS_HOME=%~dp0
+set NEXUS_HOME=%~dp0..
 echo NEXUS_HOME set to: %NEXUS_HOME%
 echo.
 
