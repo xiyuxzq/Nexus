@@ -1,0 +1,21 @@
+- name: 测试环境1
+  software: Test
+  version: '1.0'
+  department: Test
+  executable_path: ${PYTHON_PATH}
+  startup_script: scripts/test_launcher.py
+  command_args: ["测试环境1"]
+  env_variables:
+    TEST_VAR: "这是测试变量1"
+    NEXUS_TEST: "测试环境变量1"
+
+- name: 测试环境2
+  software: Test
+  version: '2.0'
+  department: Development
+  executable_path: ${PYTHON_PATH}
+  startup_script: scripts/test_launcher.py
+  command_args: ["测试环境2"]
+  env_variables:
+    TEST_VAR: "这是测试变量2"
+    NEXUS_TEST: "测试环境变量2"

@@ -1,0 +1,12 @@
+auto_start: true
+check_updates: true
+update_url: http://internal-server/nexus/updates
+plugin_repositories:
+  - http://internal-server/nexus/plugins
+log_level: INFO
+theme: dark
+language: zh_CN
+network_timeout: 30
+cache_dir: ${NEXUS_HOME}/cache
+backup_enabled: true
+backup_count: 5
